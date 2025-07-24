@@ -1,0 +1,15 @@
+{
+  "functions": {
+    "targets": [
+      "CRUD"
+    ],
+    "ignore": [
+      ".output"
+    ],
+    "source": "functions"
+  },
+  "client": {
+    "source": "react-linky",
+    "plugin": "zcatalyst-cli-plugin-react"
+  }
+}

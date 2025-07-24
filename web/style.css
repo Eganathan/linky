@@ -1,0 +1,113 @@
+
+:root {
+    --primary-bg: #f1f5f9;
+    --card-bg: #ffffff;
+    --text-color: #0f172a;
+    --subtle-text: #64748b;
+    --border-color: #e2e8f0;
+    --accent-color: #4f46e5;
+    --danger-color: #ef4444;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+body {
+    background-color: var(--primary-bg);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 800px;
+}
+
+.display-4 {
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.lead {
+    color: var(--subtle-text);
+    font-weight: 400;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -1px var(--shadow-color);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -2px var(--shadow-color);
+}
+
+.card-title {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-control {
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+}
+
+.form-control:focus {
+    background-color: var(--card-bg);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(79, 70, 229, 0.1);
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: #4338ca;
+    border-color: #4338ca;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: var(--subtle-text);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.card:hover .btn-icon,
+.link-item:hover .btn-icon {
+    opacity: 1;
+}
+
+.btn-icon:hover {
+    color: var(--danger-color);
+}
+
+.link-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.link-item:last-child {
+    border-bottom: none;
+}
+
+.link-item a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.link-item a:hover {
+    color: var(--accent-color);
+}
+
+.link-item .text-muted {
+    color: var(--subtle-text) !important;
+    font-size: 0.875rem;
+}
