@@ -13,17 +13,26 @@ export const useAuth = () => {
 
   const checkAuthStatus = async () => {
     try {
-      // For production, try to get user details from Catalyst
-      const response = await fetch('/__catalyst/auth/user', {
-        method: 'GET',
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      // Check if we're on localhost (development bypass)
+      if (window.location.hostname === 'localhost') {
+        console.log('Development mode: bypassing authentication');
+        setIsAuthenticated(true);
+        setUser({ 
+          user_id: 'dev-user', 
+          email: 'dev@localhost.com', 
+          first_name: 'Developer',
+          last_name: 'User'
+        });
+        setIsLoading(false);
+        return;
+      }
+
+      // For production, try to get user details from Catalyst server function
+      const response = await fetch('/server/getCurrentUser');
       
       if (response.ok) {
         const userData = await response.json();
+        console.log("userData", userData);
         if (userData && (userData.user_id || userData.id)) {
           setIsAuthenticated(true);
           setUser(userData);
