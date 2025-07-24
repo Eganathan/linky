@@ -20,9 +20,13 @@ public class CRUD implements CatalystAdvancedIOHandler {
                     try {
                         ZCUserDetail currentUser = ZCUser.getInstance().getCurrentUser();
 
+                        JSONObject userJson = new JSONObject();
+//                        userJson.put("name","")
+
+
                         JSONObject json = new JSONObject();
                         json.put("status", "success");
-                        json.put("user", currentUser);
+                        json.put("user", "");
 
                         response.setStatus(200);
                         response.setContentType("application/json");
