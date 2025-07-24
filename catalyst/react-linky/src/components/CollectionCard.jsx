@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import axios from 'axios';
 import LinkItem from './LinkItem';
 import AddLinkForm from './AddLinkForm';
 
@@ -8,16 +7,45 @@ const CollectionCard = ({ collection, onDelete }) => {
   const [links, setLinks] = useState(collection.links);
 
   const addLink = async (link) => {
-    const response = await axios.post(
-      `/api/collections/${collection.id}/links`,
-      link
-    );
-    setLinks([...links, response.data]);
+    try {
+      const response = await fetch(`/api/collections/${collection.id}/links`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(link),
+      });
+      
+      if (response.ok) {
+        const newLink = await response.json();
+        setLinks([...links, newLink]);
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error('Failed to add link:', error);
+    }
   };
 
   const deleteLink = async (linkId) => {
-    await axios.delete(`/api/links/${linkId}`);
-    setLinks(links.filter((l) => l.id !== linkId));
+    try {
+      const response = await fetch(`/api/links/${linkId}`, {
+        method: 'DELETE',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      
+      if (response.ok) {
+        setLinks(links.filter((l) => l.id !== linkId));
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error('Failed to delete link:', error);
+    }
   };
 
   return (
