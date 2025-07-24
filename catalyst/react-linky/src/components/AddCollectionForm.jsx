@@ -16,19 +16,19 @@ const AddCollectionForm = ({ onAdd }) => {
     <form onSubmit={handleSubmit} className="form-container glass-card">
       <input
         type="text"
-        placeholder="Collection Title"
+        placeholder="📚 Collection name (e.g., 'Web Development Tools')"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         required
       />
       <input
         type="text"
-        placeholder="Collection Description"
+        placeholder="📖 Brief description of this collection"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         required
       />
-      <button type="submit">Add Collection</button>
+      <button type="submit">✨ Create Collection</button>
     </form>
   );
 };

@@ -21,10 +21,16 @@ const CollectionCard = ({ collection, onDelete }) => {
   };
 
   return (
-    <div className="glass-card">
+    <div className="collection-card">
       <h2>{collection.title}</h2>
       <p>{collection.description}</p>
-      <button onClick={() => onDelete(collection.id)}>Delete Collection</button>
+      <button 
+        className="btn btn-danger" 
+        onClick={() => onDelete(collection.id)}
+        style={{ marginBottom: '1rem' }}
+      >
+        🗑️ Delete Collection
+      </button>
       <div>
         {links.map((link) => (
           <LinkItem key={link.id} link={link} onDelete={deleteLink} />

@@ -3,17 +3,42 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255, 0, 0, 0.5);
+  background: linear-gradient(135deg, var(--error-500), var(--error-600));
   color: white;
-  padding: 1rem;
-  border-radius: 5px;
-  margin: 1rem 0;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-lg);
+  margin: 1rem auto;
+  max-width: 500px;
+  box-shadow: var(--shadow-lg);
+  animation: slideIn 0.3s ease-out;
 }
 
 .error-message button {
-  background: none;
+  background: rgba(255, 255, 255, 0.2);
   border: none;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.error-message button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

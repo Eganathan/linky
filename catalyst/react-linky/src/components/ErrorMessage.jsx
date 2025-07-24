@@ -5,7 +5,7 @@ import './ErrorMessage.css';
 const ErrorMessage = ({ message, onClose }) => {
   return (
     <div className="error-message glass-card">
-      <span>{message}</span>
+      <span>⚠️ {message}</span>
       <button onClick={onClose}>&times;</button>
     </div>
   );

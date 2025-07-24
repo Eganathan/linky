@@ -7,7 +7,9 @@ const LinkItem = ({ link, onDelete }) => {
       <a href={link.url} target="_blank" rel="noopener noreferrer">
         {link.description}
       </a>
-      <button onClick={() => onDelete(link.id)}>Delete</button>
+      <button className="btn btn-secondary" onClick={() => onDelete(link.id)}>
+        ✕
+      </button>
     </div>
   );
 };

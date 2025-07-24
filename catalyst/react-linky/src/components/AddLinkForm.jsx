@@ -13,22 +13,22 @@ const AddLinkForm = ({ onAdd }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-container">
+    <form onSubmit={handleSubmit} className="form-container" style={{ marginTop: '1.5rem' }}>
       <input
         type="url"
-        placeholder="Link URL"
+        placeholder="🌐 Enter link URL (e.g., https://example.com)"
         value={url}
         onChange={(e) => setUrl(e.target.value)}
         required
       />
       <input
         type="text"
-        placeholder="Link Description"
+        placeholder="📝 Describe this link"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         required
       />
-      <button type="submit">Add Link</button>
+      <button type="submit">➕ Add Link</button>
     </form>
   );
 };
